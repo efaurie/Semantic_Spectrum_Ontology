@@ -1,0 +1,47 @@
+# Local File Prefix
+
+@prefix : <http://www.iit.edu/ontologies/codebase#> .
+
+
+# External Dependencies
+
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http:/www.w3.org/2001/XMLSchema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+
+
+# Classes
+
+:Codebase a owl:Class .
+:ProgrammingLanguage a owl:Class .
+:Dependency a owl:Class .
+:VersionControlSystem a owl:Class .
+:GitRepository a owl:Class ;
+	rdfs:subClassOf :VersionControlSystem .
+
+
+# Object Properties
+
+:hasProgrammingLanguage a owl:ObjectProperty ;
+	rdfs:domain :Codebase ;
+	rdfs:range :ProgrammingLanguage .
+:hasDependency a owl:ObjectProperty ;
+	rdfs:domain :Codebase ;
+	rdfs:range :Dependency .
+:hasVersionControlSystem a owl:ObjectProperty ;
+	rdfs:domain :Codebase ;
+	rdfs:range :VersionControlSystem .
+	
+
+# Datatype Properties
+
+:hasName a owl:DatatypeProperty ;
+	rdfs:domain :Codebase ;
+	rdfs:domain :Library ;
+	rdfs:range xsd:string .
+:hasVersion a owl:DatatypeProperty ;
+	rdfs:domain :Codebase ;
+	rdfs:domain :ProgrammingLanguage ;
+	rdfs:domain :Library ;
+	rdfs:range xsd:double .

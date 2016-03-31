@@ -1,0 +1,52 @@
+# Local File Prefix
+
+@prefix : <http://www.iit.edu/ontologies/data-warehouse#> .
+
+
+# External Dependencies
+
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http:/www.w3.org/2001/XMLSchema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+
+
+# Classes
+
+:DataWarehouse a owl:Class .
+:SQLStore a owl:Class ;
+	rdfs:subClassOf :DataWarehouse .
+:DatabaseType a owl:Class .
+:SQLDatabaseType a owl:Class ;
+	rdfs:subClassOf :DatabaseType .
+:DatabaseAddress a owl:Class .
+:DatabaseName a owl:Class .
+:DatabaseSchema a owl:Class .
+:SQLDatabaseSchema a owl:Class ;
+	rdfs:subClassOf :SQLDatabaseSchema .
+
+
+# Object Properties
+
+:hasDatabaseType a owl:ObjectProperty ;
+	rdfs:domain :DataWarehouse ;
+	rdfs:range :DatabaseType .
+:hasSQLDatabaseType a owl:ObjectProperty ;
+	rdfs:subPropertyOf :hasDatabaseType ;
+	rdfs:domain :SQLStore ;
+	rdfs:range :SQLDatabaseType .
+:hasDatabaseSchema a owl:ObjectProperty ;
+	rdfs:domain :DataWarehouse .
+:hasSQLDatabaseSchema a owl:Class ;
+	rdfs:subPropertyOf :hasDatabaseSchema ;
+	rdfs:domain :SQLStore .
+
+
+# Datatype Properties
+
+:hasDatabaseAddress a owl:DatatypeProperty ;
+	rdfs:domain :DataWarehouse ;
+	rdfs:range xsd:string .
+:hasDatabaseName a owl:DatatypeProperty ;
+	rdfs:domain :DataWarehouse ;
+	rdfs:range xsd:string .

@@ -1,0 +1,68 @@
+# Local File Prefix
+
+@prefix : <http://www.iit.edu/ontologies/scientific-provenance-model#> .
+
+
+# External Dependencies
+
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http:/www.w3.org/2001/XMLSchema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+
+
+# Internal Dependencies
+
+@prefix dw: <http://www.iit.edu/ontologies/data-warehouse#> .
+
+
+# Classes
+
+:Experiment a owl:Class .
+:OutputMechanism a owl:Class .
+:InputMechanism a owl:Class .
+:File a owl:Class ;
+	rdfs:subClassOf :OutputMechanism ;
+	rdfs:subClassOf :InputMechanism ;
+dw:DataWarehouse rdfs:subClassOf :OutputMechanism ;
+	rdfs:subClassOf :InputMechanism .
+:FileNamingConvention a owl:Class .
+:OSEnvironment a owl:Class .
+:ProgrammingLanguage a owl:Class .
+
+
+# Object Properties
+
+:hasInputMechanism a owl:ObjectProperty ;
+	rdfs:domain :InputMechanism ;
+	rdfs:range :Experiment .
+:hasOutputMechanism a owl:ObjectProperty ;
+	rdfs:domain :OutputMechanism ;
+	rdfs:range :InputMechanism .
+:hasProgrammingLanguage a owl:ObjectProperty ;
+	rdfs:domain :Experiment ;
+	rdfs:range :ProgrammingLanguage .
+:hasOSEnvironment a owl:ObjectProperty ;
+	rdsf:domain :Experiment ;
+	rdfs:range :OSEnvironment .
+
+
+# Datatype Properties
+
+:hasName a owl:DatatypeProperty ;
+	rdfs:domain :Experiment ;
+	rdfs:domain :File ;
+	rdfs:range xsd:string .
+:hasVersion a owl:DatatypeProperty ;
+	rdfs:domain :Experiment ;
+	rdfs:range xsd:double .
+:hasFileType a owl:DatatypeProperty ;
+	rdfs:domain :File ;
+	rdfs:range xsd:string .
+:hasFileNamingConvention a owl:DatatypeProperty ;
+	rdfs:domain :Experiment ;
+	rdfs:range xsd:string .
+:hasTimestamp a owl:DatatypeProperty ;
+	rdfs:domain :Experiment ;
+	rdfs:domain :File ;
+	rdfs:range xsd:dateTime .
