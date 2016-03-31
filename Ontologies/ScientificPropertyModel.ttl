@@ -1,0 +1,36 @@
+# Local File Prefix
+
+@prefix : <http://www.iit.edu/ontologies/scientific-property-model#> .
+
+
+# External Dependencies
+
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http:/www.w3.org/2001/XMLSchema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+
+
+# Classes
+
+:Property a owl:Class .
+:Function a owl:Class .
+:ScientificProperty a owl:Class ;
+	rdfs:subClassOf :Property .
+:AxiomaticProperty a owl:Class ;
+	rdfs:subClassOf :ScientificProperty .
+:ExperimentalProperty a owl:Class ;
+	rdfs:subClassOf :ScientificProperty .
+:LearnedProperty a owl:Class ;
+	rdfs:subClassOf :ScientificProperty .
+
+
+# Object Properties
+
+:hasAntecedent a owl:ObjectProperty ;
+	rdfs:domain :ScientificProperty .
+:hasConsequenct a owl:ObjectProperty ;
+	rdfs:domain :ScientificProperty .
+:hasRelationship a owl:ObjectProperty ;
+	rdfs:domain :ScientificProperty ;
+	rdfs:range :Function.
