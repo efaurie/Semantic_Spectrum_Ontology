@@ -14,6 +14,7 @@
 # Internal Dependencies
 
 @prefix dw: <http://www.iit.edu/ontologies/data-warehouse#> .
+@prefix cb: <http://www.iit.edu/ontologies/codebase#> .
 
 
 # Classes
@@ -27,8 +28,6 @@
 dw:DataWarehouse rdfs:subClassOf :OutputMechanism ;
 	rdfs:subClassOf :InputMechanism .
 :FileNamingConvention a owl:Class .
-:OSEnvironment a owl:Class .
-:ProgrammingLanguage a owl:Class .
 
 
 # Object Properties
@@ -39,12 +38,9 @@ dw:DataWarehouse rdfs:subClassOf :OutputMechanism ;
 :hasOutputMechanism a owl:ObjectProperty ;
 	rdfs:domain :OutputMechanism ;
 	rdfs:range :InputMechanism .
-:hasProgrammingLanguage a owl:ObjectProperty ;
+:hasCodebase a owl:ObjectProperty ;
 	rdfs:domain :Experiment ;
-	rdfs:range :ProgrammingLanguage .
-:hasOSEnvironment a owl:ObjectProperty ;
-	rdsf:domain :Experiment ;
-	rdfs:range :OSEnvironment .
+	rdfs:range cb:Codebase .
 
 
 # Datatype Properties

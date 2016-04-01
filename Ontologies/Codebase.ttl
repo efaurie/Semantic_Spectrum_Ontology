@@ -32,7 +32,7 @@
 :hasVersionControlSystem a owl:ObjectProperty ;
 	rdfs:domain :Codebase ;
 	rdfs:range :VersionControlSystem .
-	
+
 
 # Datatype Properties
 
@@ -43,5 +43,11 @@
 :hasVersion a owl:DatatypeProperty ;
 	rdfs:domain :Codebase ;
 	rdfs:domain :ProgrammingLanguage ;
-	rdfs:domain :Library ;
-	rdfs:range xsd:double .
+	rdfs:domain :Dependency ;
+	rdfs:range xsd:string .
+:hasAddress a owl:DatatypeProperty ;
+	rdfs:domain :VersionControlSystem ;
+	rdfs:range xsd:string .
+:hasHomepage a owl:DatatypeProperty ;
+	rdfs:domain :Codebase ;
+	rdfs:range xsd:string .
