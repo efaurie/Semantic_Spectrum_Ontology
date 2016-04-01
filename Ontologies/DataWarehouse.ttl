@@ -29,17 +29,17 @@
 # Object Properties
 
 :hasDatabaseType a owl:ObjectProperty ;
-	rdfs:domain :DataWarehouse ;
 	rdfs:range :DatabaseType .
 :hasSQLDatabaseType a owl:ObjectProperty ;
 	rdfs:subPropertyOf :hasDatabaseType ;
 	rdfs:domain :SQLStore ;
 	rdfs:range :SQLDatabaseType .
 :hasDatabaseSchema a owl:ObjectProperty ;
-	rdfs:domain :DataWarehouse .
+	rdfs:range :DatabaseSchema .
 :hasSQLDatabaseSchema a owl:Class ;
 	rdfs:subPropertyOf :hasDatabaseSchema ;
-	rdfs:domain :SQLStore .
+	rdfs:domain :SQLStore ;
+	rdfs:range :SQLDatabaseSchema .
 
 
 # Datatype Properties

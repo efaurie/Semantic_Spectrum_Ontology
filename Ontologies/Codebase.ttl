@@ -23,14 +23,13 @@
 
 # Object Properties
 
+:hasCodebase a owl:ObjectProperty ;
+	rdfs:range :Codebase .
 :hasProgrammingLanguage a owl:ObjectProperty ;
-	rdfs:domain :Codebase ;
 	rdfs:range :ProgrammingLanguage .
 :hasDependency a owl:ObjectProperty ;
-	rdfs:domain :Codebase ;
 	rdfs:range :Dependency .
 :hasVersionControlSystem a owl:ObjectProperty ;
-	rdfs:domain :Codebase ;
 	rdfs:range :VersionControlSystem .
 
 

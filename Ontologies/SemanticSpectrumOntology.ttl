@@ -1,0 +1,46 @@
+# Local File Prefix
+
+@prefix : <http://www.iit.edu/ontologies/semantic-spectrum-ontology#> .
+
+
+# External Dependencies
+
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http:/www.w3.org/2001/XMLSchema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+
+
+# Internal Dependencies
+
+
+# Classes
+
+:Band a owl:Class .
+:Channel a owl:Class .
+:Signal a owl:Class .
+
+
+# Object Properties
+
+:hasChannel a owl:ObjectProperty .
+:hasBand a owl:FunctionalObjectProperty .
+:hasChannel owl:inverseOf :hasBand .
+
+
+# Datatype Properties
+
+:hasStartingFrequency a owl:DatatypeProperty ;
+	rdfs:domain :Band ;
+	rdfs:domain :Channel ;
+	rdfs:range xsd:double .
+:hasStoppingFrequency a owl:DatatypeProperty ;
+	rdfs:domain :Band ;
+	rdfs:domain :Channel ;
+	rdfs:range xsd:double .
+:hasFrequency a owl:DatatypeProperty ;
+	rdfs:domain :Signal ;
+	rdfs:range xsd:double .
+:hasPower a owl:DatatypeProperty ;
+	rdfs:domain :Signal ;
+	rdfs:range xsd:double .

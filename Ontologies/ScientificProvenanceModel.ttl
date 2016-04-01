@@ -33,13 +33,10 @@ dw:DataWarehouse rdfs:subClassOf :OutputMechanism ;
 # Object Properties
 
 :hasInputMechanism a owl:ObjectProperty ;
-	rdfs:domain :InputMechanism ;
-	rdfs:range :Experiment .
-:hasOutputMechanism a owl:ObjectProperty ;
-	rdfs:domain :OutputMechanism ;
 	rdfs:range :InputMechanism .
+:hasOutputMechanism a owl:ObjectProperty ;
+	rdfs:range :OutputMechanism .
 :hasCodebase a owl:ObjectProperty ;
-	rdfs:domain :Experiment ;
 	rdfs:range cb:Codebase .
 
 
