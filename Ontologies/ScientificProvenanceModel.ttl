@@ -16,7 +16,7 @@
 @prefix dw: <http://www.iit.edu/ontologies/data-warehouse#> .
 @prefix cb: <http://www.iit.edu/ontologies/codebase#> .
 @prefix file: <http://www.iit.edu/ontologies/file#> .
-@prefix gdp: <http://www.iit.edu/ontologies/general-data-properties#> .
+@prefix gdp: <http://www.iit.edu/ontologies/general-sso-data-properties#> .
 
 
 # Classes

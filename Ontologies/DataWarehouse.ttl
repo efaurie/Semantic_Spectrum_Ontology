@@ -13,7 +13,7 @@
 
 # Internal Dependencies
 
-@prefix gdp: <http://www.iit.edu/ontologies/general-data-properties#> .
+@prefix gdp: <http://www.iit.edu/ontologies/general-sso-data-properties#> .
 
 
 # Classes
