@@ -1,0 +1,34 @@
+# Local File Prefix
+
+@prefix : <http://www.iit.edu/ontologies/spectrum-measurement-system#> .
+
+
+# External Dependencies
+
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http:/www.w3.org/2001/XMLSchema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix ssn: <http://purl.oclc.org/NET/ssnx/ssn> .
+
+
+# Internal Dependencies
+
+@prefix antenna: <http://www.iit.edu/ontologies/antenna#> .
+@prefix gdp: <http://www.iit.edu/ontologies/general-sso-data-properties#> .
+
+
+# Classes
+
+:SpectrumMeasurementSystem a owl:Class ;
+	rdfs:subClassOf ssn:System .
+:SpectrumMeasurementDevice a owl:Class ;
+	rdfs:subClassOf ssn:SensingDevice .
+:SpectrumMeasurementCapability a owl:Class ;
+	rdfs:subClassOf ssn:MeasurementCapability .
+
+
+# Object Properties
+
+:hasSpectrumMeasurementDevice a owl:ObjectProperty ;
+	rdfs:range :SpectrumMeasurementDevice .

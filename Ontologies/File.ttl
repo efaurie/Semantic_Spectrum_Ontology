@@ -1,0 +1,32 @@
+# Local File Prefix
+
+@prefix : <http://www.iit.edu/ontologies/file#> .
+
+
+# External Dependencies
+
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http:/www.w3.org/2001/XMLSchema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+
+
+# Internal Dependencies
+
+@prefix gdp: <http://www.iit.edu/ontologies/general-data-properties#> .
+
+
+# Classes
+
+:File a owl:Class .
+:HDF5File a owl:Class ;
+	rdfs:subClassOf :File .
+
+
+# Object Properties
+
+
+# Datatype Properties
+
+:hasNamingConvention a owl:DatatypeProperty ;
+	rdfs:range xsd:string .

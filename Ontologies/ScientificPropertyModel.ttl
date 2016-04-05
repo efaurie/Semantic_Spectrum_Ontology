@@ -9,11 +9,13 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xsd: <http:/www.w3.org/2001/XMLSchema#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix ssn: <http://purl.oclc.org/NET/ssnx/ssn> .
 
 
 # Classes
 
-:Property a owl:Class .
+:Property a owl:Class ;
+	owl:sameAs ssn:Property .
 :Function a owl:Class .
 :ScientificProperty a owl:Class ;
 	rdfs:subClassOf :Property .
@@ -27,10 +29,14 @@
 
 # Object Properties
 
-:hasAntecedent a owl:ObjectProperty ;
-	rdfs:domain :ScientificProperty .
-:hasConsequenct a owl:ObjectProperty ;
-	rdfs:domain :ScientificProperty .
-:hasRelationship a owl:ObjectProperty ;
-	rdfs:domain :ScientificProperty ;
+:hasAntecedent a owl:ObjectProperty .
+:hasConsequenct a owl:ObjectProperty .
+:hasRelationship a owl:ObjectProperty .
 	rdfs:range :Function.
+
+
+# Datatype Properties
+
+:hasEncoding a owl:DatatypeProperty ;
+	rdfs:domain :Function ;
+	rdfs:range xsd:string .

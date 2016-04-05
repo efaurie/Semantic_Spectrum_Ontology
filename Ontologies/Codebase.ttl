@@ -31,22 +31,3 @@
 	rdfs:range :Dependency .
 :hasVersionControlSystem a owl:ObjectProperty ;
 	rdfs:range :VersionControlSystem .
-
-
-# Datatype Properties
-
-:hasName a owl:DatatypeProperty ;
-	rdfs:domain :Codebase ;
-	rdfs:domain :Library ;
-	rdfs:range xsd:string .
-:hasVersion a owl:DatatypeProperty ;
-	rdfs:domain :Codebase ;
-	rdfs:domain :ProgrammingLanguage ;
-	rdfs:domain :Dependency ;
-	rdfs:range xsd:string .
-:hasAddress a owl:DatatypeProperty ;
-	rdfs:domain :VersionControlSystem ;
-	rdfs:range xsd:string .
-:hasHomepage a owl:DatatypeProperty ;
-	rdfs:domain :Codebase ;
-	rdfs:range xsd:string .

@@ -1,0 +1,31 @@
+# Local File Prefix
+
+@prefix : <http://www.iit.edu/ontologies/general-sso-data-properties#> .
+
+
+# External Dependencies
+
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http:/www.w3.org/2001/XMLSchema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+
+
+# Datatype Properties
+
+:hasName a owl:DatatypeProperty ;
+	rdfs:range xsd:string .
+:hasVersion a owl:DatatypeProperty ;
+	rdfs:range xsd:double .
+:hasTimestamp a owl:DatatypeProperty ;
+	rdfs:range xsd:dateTime .
+:hasAddress a owl:DatatypeProperty ;
+	rdfs:range xsd:string .
+:hasHomepage a owl:DatatypeProperty ;
+	rdfs:range xsd:string .
+:hasBrand a owl:DatatypeProperty ;
+	rdfs:range xsd:string .
+:hasModelNumber a owl:DatatypeProperty ;
+	rdfs:range xsd:string .
+:hasManufacturer a owl:DatatypeProperty ;
+	rdfs:range xsd:string .

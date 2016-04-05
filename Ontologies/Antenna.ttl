@@ -1,0 +1,47 @@
+# Local File Prefix
+
+@prefix : <http://www.iit.edu/ontologies/antenna#> .
+
+
+# External Dependencies
+
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http:/www.w3.org/2001/XMLSchema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix ssn: <http://purl.oclc.org/NET/ssnx/ssn> .
+
+
+# Classes
+
+:Antenna a owl:Class .
+:Location a owl:Class ;
+	rdfs:subClassOf ssn:Platform .
+:YagiAntenna a owl:Class ;
+	rdfs:subClassOf :Antenna .
+:HornAntenna a owl:Class ;
+	rdfs:subClassOf :Antenna .
+:ParabolicAntenna a owl:Class ;
+	rdfs:subClassOf :Antenna .
+:SpiderAntenna a owl:Class ;
+	rdfs:subClassOf :Antenna .
+:LogPeriodicAntenna a owl:Class ;
+	rdfs:subClassOf :Antenna .
+
+
+# Object Properties
+# Note that an Antenna should use spectrum:hasBandwidth 
+# Which is located within the spectrum ontology
+
+:hasAntenna a owl:ObjectProperty ;
+	rdfs:range :Antenna .
+
+
+# Datatype Properties
+
+:hasGain a owl:DatatypeProperty ;
+	rdfs:range xsd:double .
+:hasDirectionality a owl:DatatypeProperty ;
+	rdfs:range xsd:string .
+:hasBeamwidth a owl:DatatypeProperty ;
+	rdfs:range xsd:double .

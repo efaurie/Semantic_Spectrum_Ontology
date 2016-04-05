@@ -1,6 +1,6 @@
 # Local File Prefix
 
-@prefix : <http://www.iit.edu/ontologies/semantic-spectrum-ontology#> .
+@prefix : <http://www.iit.edu/ontologies/spectrum#> .
 
 
 # External Dependencies
@@ -11,14 +11,12 @@
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 
 
-# Internal Dependencies
-
-
 # Classes
 
+:Spectrum a owl:Class .
 :Band a owl:Class .
 :Channel a owl:Class .
-:Signal a owl:Class .
+:Bandwidth a owl:Class .
 
 
 # Object Properties
@@ -26,21 +24,13 @@
 :hasChannel a owl:ObjectProperty .
 :hasBand a owl:FunctionalObjectProperty .
 :hasChannel owl:inverseOf :hasBand .
+:hasBandwidth a owl:ObjectProperty ;
+	rdfs:range :Bandwidth .
 
 
 # Datatype Properties
 
 :hasStartingFrequency a owl:DatatypeProperty ;
-	rdfs:domain :Band ;
-	rdfs:domain :Channel ;
 	rdfs:range xsd:double .
 :hasStoppingFrequency a owl:DatatypeProperty ;
-	rdfs:domain :Band ;
-	rdfs:domain :Channel ;
-	rdfs:range xsd:double .
-:hasFrequency a owl:DatatypeProperty ;
-	rdfs:domain :Signal ;
-	rdfs:range xsd:double .
-:hasPower a owl:DatatypeProperty ;
-	rdfs:domain :Signal ;
 	rdfs:range xsd:double .

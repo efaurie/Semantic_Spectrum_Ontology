@@ -11,6 +11,11 @@
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 
 
+# Internal Dependencies
+
+@prefix gdp: <http://www.iit.edu/ontologies/general-data-properties#> .
+
+
 # Classes
 
 :DataWarehouse a owl:Class .
@@ -40,13 +45,3 @@
 	rdfs:subPropertyOf :hasDatabaseSchema ;
 	rdfs:domain :SQLStore ;
 	rdfs:range :SQLDatabaseSchema .
-
-
-# Datatype Properties
-
-:hasDatabaseAddress a owl:DatatypeProperty ;
-	rdfs:domain :DataWarehouse ;
-	rdfs:range xsd:string .
-:hasDatabaseName a owl:DatatypeProperty ;
-	rdfs:domain :DataWarehouse ;
-	rdfs:range xsd:string .
