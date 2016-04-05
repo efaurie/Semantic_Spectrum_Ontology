@@ -2,7 +2,7 @@
 
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix xsd: <http:/www.w3.org/2001/XMLSchema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 
 # Internal Dependencies
@@ -130,9 +130,9 @@ cb:Semantic_Spectrum_Ontology a cb:Codebase ;
 	cb:hasDependency cb:SSN .
 
 cb:IITSO a cb:Codebase ;
-	cb:hasProgrammingLanguage cd:Python ;
+	cb:hasProgrammingLanguage cb:Python ;
 	cb:hasVersionControlSystem cb:IITSO_Git ;
-	gdp:hasVersion "2.0.0"^^xsd:double .
+	gdp:hasVersion "2.0.0"^^xsd:string .
 
 
 # Data Warehouse Examples
@@ -197,6 +197,6 @@ propm:DistanceFromEmitter a propm:Property .
 propm:PerceivedSignalPower a propm:Property .
 
 propm:Distance a propm:ScientificProperty ;
-	propm:hasAntecedent a propm:DistanceFromEmitter ;
-	propm:hasConsequent a propm:PerceivedSignalPower ;
+	propm:hasAntecedent propm:DistanceFromEmitter ;
+	propm:hasConsequent propm:PerceivedSignalPower ;
 	propm:hasFunction "y=(1/x^2)a"^^xsd:string .

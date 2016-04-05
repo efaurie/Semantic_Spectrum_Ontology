@@ -31,8 +31,8 @@
 
 :hasAntecedent a owl:ObjectProperty .
 :hasConsequenct a owl:ObjectProperty .
-:hasRelationship a owl:ObjectProperty .
-	rdfs:range :Function.
+:hasRelationship a owl:ObjectProperty ;
+	rdfs:range :Function .
 
 
 # Datatype Properties
