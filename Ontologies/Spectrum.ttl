@@ -16,7 +16,6 @@
 :Spectrum a owl:Class .
 :Band a owl:Class .
 :Channel a owl:Class .
-:Bandwidth a owl:Class .
 
 
 # Object Properties
@@ -24,8 +23,8 @@
 :hasChannel a owl:ObjectProperty .
 :hasBand a owl:FunctionalObjectProperty .
 :hasChannel owl:inverseOf :hasBand .
-:hasBandwidth a owl:ObjectProperty ;
-	rdfs:range :Bandwidth .
+:hasOperatingBand a owl:ObjectProperty ;
+	rdfs:range :Band .
 
 
 # Datatype Properties

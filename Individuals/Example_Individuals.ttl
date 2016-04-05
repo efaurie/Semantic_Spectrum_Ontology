@@ -1,0 +1,125 @@
+# External Dependencies
+
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http:/www.w3.org/2001/XMLSchema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+
+# Internal Dependencies
+
+@prefix gdp: <http://www.iit.edu/ontologies/general-sso-data-properties#> .
+@prefix ant: <http://www.iit.edu/ontologies/antenna#> .
+@prefix cb: <http://www.iit.edu/ontologies/codebase#> .
+@prefix dw: <http://www.iit.edu/ontologies/data-warehouse#> .
+@prefix file: <http://www.iit.edu/ontologies/file#> .
+@prefix propm: <http://www.iit.edu/ontologies/scientific-property-model#> .
+@prefix provm: <http://www.iit.edu/ontologies/scientific-provenance-model#> .
+@prefix spec: <http://www.iit.edu/ontologies/spectrum#> .
+@prefix sms: <http://www.iit.edu/ontologies/spectrum-measurement-system#> .
+
+
+# Spectrum Examples
+
+spec:WiFi a spec:Band ;
+	spec:hasStartingFrequency "2400"^^xsd:double ;
+	spec:hasStoppingFrequency "2500"^^xsd:double .
+
+spec:WiFi_Channel_01 a spec:Channel ;
+	spec:hasBand spec:WiFi ;
+	spec:hasStartingFrequency "2401"^^xsd:double ;
+	spec:hasStoppingFrequency "2423"^^xsd:double .
+spec:WiFi_Channel_02 a spec:Channel ;
+	spec:hasBand spec:WiFi ;
+	spec:hasStartingFrequency "2406"^^xsd:double ;
+	spec:hasStoppingFrequency "2428"^^xsd:double .
+spec:WiFi_Channel_03 a spec:Channel ;
+	spec:hasBand spec:WiFi ;
+	spec:hasStartingFrequency "2411"^^xsd:double ;
+	spec:hasStoppingFrequency "2433"^^xsd:double .
+spec:WiFi_Channel_04 a spec:Channel ;
+	spec:hasBand spec:WiFi ;
+	spec:hasStartingFrequency "2416"^^xsd:double ;
+	spec:hasStoppingFrequency "2438"^^xsd:double .
+spec:WiFi_Channel_05 a spec:Channel ;
+	spec:hasBand spec:WiFi ;
+	spec:hasStartingFrequency "2421"^^xsd:double ;
+	spec:hasStoppingFrequency "2443"^^xsd:double .
+spec:WiFi_Channel_06 a spec:Channel ;
+	spec:hasBand spec:WiFi ;
+	spec:hasStartingFrequency "2426"^^xsd:double ;
+	spec:hasStoppingFrequency "2448"^^xsd:double .
+spec:WiFi_Channel_07 a spec:Channel ;
+	spec:hasBand spec:WiFi ;
+	spec:hasStartingFrequency "2431"^^xsd:double ;
+	spec:hasStoppingFrequency "2453"^^xsd:double .
+spec:WiFi_Channel_08 a spec:Channel ;
+	spec:hasBand spec:WiFi ;
+	spec:hasStartingFrequency "2436"^^xsd:double ;
+	spec:hasStoppingFrequency "2458"^^xsd:double .
+spec:WiFi_Channel_09 a spec:Channel ;
+	spec:hasBand spec:WiFi ;
+	spec:hasStartingFrequency "2441"^^xsd:double ;
+	spec:hasStoppingFrequency "2463"^^xsd:double .
+spec:WiFi_Channel_10 a spec:Channel ;
+	spec:hasBand spec:WiFi ;
+	spec:hasStartingFrequency "2446"^^xsd:double ;
+	spec:hasStoppingFrequency "2468"^^xsd:double .
+spec:WiFi_Channel_11 a spec:Channel ;
+	spec:hasBand spec:WiFi ;
+	spec:hasStartingFrequency "2451"^^xsd:double ;
+	spec:hasStoppingFrequency "2473"^^xsd:double .
+spec:WiFi_Channel_12 a spec:Channel ;
+	spec:hasBand spec:WiFi ;
+	spec:hasStartingFrequency "2456"^^xsd:double ;
+	spec:hasStoppingFrequency "2478"^^xsd:double .
+spec:WiFi_Channel_13 a spec:Channel ;
+	spec:hasBand spec:WiFi ;
+	spec:hasStartingFrequency "2461"^^xsd:double ;
+	spec:hasStoppingFrequency "2483"^^xsd:double .
+spec:WiFi_Channel_14 a spec:Channel ;
+	spec:hasBand spec:WiFi ;
+	spec:hasStartingFrequency "2473"^^xsd:double ;
+	spec:hasStoppingFrequency "2495"^^xsd:double .
+
+
+# Antenna Examples
+
+ant:01 a ant:YagiAntenna ;
+	gdp:hasManufacturer "TurboTenna"^^xsd:string ;
+	gdp:hasModel "007GTi NextG"^^xsd:string ;
+	spec:hasOperatingBand spec:WiFi ;
+	ant:hasGain "18"^^xsd:double ;
+	ant:hasBeamwidth "56"^^xsd:double ;
+	ant:hasDirectionality "Directional"^^xsd:string .
+
+
+# Codebase Examples
+
+cb:Python_2.7 a cb:ProgrammingLanguage .
+cb:Turtle a cb:ProgrammingLanguage .
+
+cb:BeautifulSoup_4 a cb:Dependency ;
+	cb:hasProgrammingLanguage cb:Python_2.7 ;
+	gdp:hasVersion "4.4.1"^^xsd:string ;
+	gdp:hasHomepage "https://pypi.python.org/pypi/beautifulsoup4"^^xsd:string .
+
+cb:SSN a cb:Dependency ;
+	cb:hasProgrammingLanguage cb:Turtle ;
+	gdp:hasVersion "2011"^^xsd:string ;
+	gdp:hasHomepage "https://www.w3.org/2005/Incubator/ssn/ssnx/ssn"^^xsd:string .
+
+cb:SSO_Git a cb:Git_Repository ;
+	gdp:hasAddress "https://github.com/efaurie/Semantic_Spectrum_Ontology"^^xsd:string .
+
+cb:Semantic_Spectrum_Ontology a cb:Codebase ;
+	cb:hasProgrammingLanguage cb:Turtle ;
+	cb:hasVersionControlSystem cb:SSO_Git ;
+	cb:hasVersion "1.0.0"^^xsd:string ;
+	cb:hasDependency cb:SSN .
+
+
+# Data Warehouse Examples
+
+
+
+	

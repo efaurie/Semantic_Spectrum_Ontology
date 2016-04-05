@@ -16,16 +16,14 @@
 :hasName a owl:DatatypeProperty ;
 	rdfs:range xsd:string .
 :hasVersion a owl:DatatypeProperty ;
-	rdfs:range xsd:double .
+	rdfs:range xsd:string .
 :hasTimestamp a owl:DatatypeProperty ;
 	rdfs:range xsd:dateTime .
 :hasAddress a owl:DatatypeProperty ;
 	rdfs:range xsd:string .
 :hasHomepage a owl:DatatypeProperty ;
 	rdfs:range xsd:string .
-:hasBrand a owl:DatatypeProperty ;
-	rdfs:range xsd:string .
-:hasModelNumber a owl:DatatypeProperty ;
+:hasModel a owl:DatatypeProperty ;
 	rdfs:range xsd:string .
 :hasManufacturer a owl:DatatypeProperty ;
 	rdfs:range xsd:string .
