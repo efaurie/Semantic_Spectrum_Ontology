@@ -27,3 +27,11 @@
 	rdfs:range xsd:string .
 :hasManufacturer a owl:DatatypeProperty ;
 	rdfs:range xsd:string .
+:hasNamingConvention a owl:DatatypeProperty ;
+	rdfs:range xsd:string .
+:hasLatitude a owl:DatatypeProperty ;
+	rdfs:range xsd:double .
+:hasLongitude a owl:DatatypeProperty ;
+	rdfs:range xsd:double .
+:hasHeight a owl:DatatypeProperty ;
+	rdfs:range xsd:double .

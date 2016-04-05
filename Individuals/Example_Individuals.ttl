@@ -20,6 +20,9 @@
 
 # Spectrum Examples
 
+spec:2_25600 a spec:Band ;
+	spec:hasStartingFrequency "2"^^xsd:double ;
+	spec:hasStoppingFrequency "25600"^^xsd:double .
 spec:WiFi a spec:Band ;
 	spec:hasStartingFrequency "2400"^^xsd:double ;
 	spec:hasStoppingFrequency "2500"^^xsd:double .
@@ -84,13 +87,19 @@ spec:WiFi_Channel_14 a spec:Channel ;
 
 # Antenna Examples
 
+ant:Loc01 a ant:Location ;
+	gdp:hasLatitude "41.831385"^^xsd:double ;
+	gdp:hasLongitude "-87.627222"^^xsd:double ;
+	gdp:hasHeight "237"^^xsd:double .
+
 ant:01 a ant:YagiAntenna ;
 	gdp:hasManufacturer "TurboTenna"^^xsd:string ;
 	gdp:hasModel "007GTi NextG"^^xsd:string ;
 	spec:hasOperatingBand spec:WiFi ;
 	ant:hasGain "18"^^xsd:double ;
 	ant:hasBeamwidth "56"^^xsd:double ;
-	ant:hasDirectionality "Directional"^^xsd:string .
+	ant:hasDirectionality "Directional"^^xsd:string ;
+	ant:hasLocation ant:Loc01 .
 
 
 # Codebase Examples
@@ -111,15 +120,83 @@ cb:SSN a cb:Dependency ;
 cb:SSO_Git a cb:Git_Repository ;
 	gdp:hasAddress "https://github.com/efaurie/Semantic_Spectrum_Ontology"^^xsd:string .
 
+cb:IITSO_Git a cb:Git_Repository ;
+	gdp:hasAddress "https://github.com/efaurie/spyctrum"^^xsd:string .
+
 cb:Semantic_Spectrum_Ontology a cb:Codebase ;
 	cb:hasProgrammingLanguage cb:Turtle ;
 	cb:hasVersionControlSystem cb:SSO_Git ;
-	cb:hasVersion "1.0.0"^^xsd:string ;
+	gdp:hasVersion "1.0.0"^^xsd:string ;
 	cb:hasDependency cb:SSN .
+
+cb:IITSO a cb:Codebase ;
+	cb:hasProgrammingLanguage cd:Python ;
+	cb:hasVersionControlSystem cb:IITSO_Git ;
+	gdp:hasVersion "2.0.0"^^xsd:double .
 
 
 # Data Warehouse Examples
 
+dw:SQL_Schema_01 a dw:SQLDatabaseSchema .
+
+dw:PostGRES_95 a dw:SQLDatabaseType ;
+	gdp:hasVersion "9.5"^^xsd:string .
+
+dw:PG_01 a dw:SQLStore ;
+	dw:hasSQLDatabaseType dw:PostGRES_95 ;
+	dw:hasSQLDatabaseSchema dw:SQL_Schema_01 ;
+	gdp:hasAddress "localhost"^^xsd:string ;
+	dw:hasUsername "postgres_user"^^xsd:string ;
+	dw:hasPassword "default"^^xsd:string .
 
 
-	
+# File Examples
+
+file:HDF5_01 a file:HDF5File ;
+	gdp:hasName "data_file_01"^^xsd:string ;
+	gdp:hasTimestamp "2016-04-05T12:00:00"^^xsd:dateTime ;
+	gdp:hasAddress "ftp://ftp.example.com/pub/data_file_01.hdf5" .
+
+file:IITSO_BP_2016 a file:File ;
+	gdp:hasName "IITSO_BandPlan_2016.txt"^^xsd:string ;
+	gdp:hasTimestamp "2016-12-20T12:00:00"^^xsd:dateTime .
+
+
+# Spectrum Measurement System Examples
+
+sms:RS_Analyzer_01 a sms:SpectrumMeasurementDevice ;
+	gdp:hasName "Rohde Schwarz Spectrum Analyzer" ;
+	gdp:hasModel "FSW26"^^xsd:string ;
+	gdp:hasManufacturer "Rohde & Schwarz"^^xsd:string ;
+	gdp:hasHomepage "https://www.rohde-schwarz.com/us/product/fsw-productstartpage_63493-11793.html"^^xsd:string ;
+	spec:hasOperatingBand spec:2_26500 ;
+	sms:hasMaximumResolution "2000"^^xsd:double ;
+	sms:hasMaximumAnalysisBandwidth "2000000000"^^xsd:double .
+
+
+sms:IITSO a sms:SpectrumMeasurementSystem ;
+	gdp:hasName "IIT Spectrum Observatory"^^xsd:string ;
+	ant:hasAntenna ant:01 ;
+	sms:hasSpectrumMeasurementDevice sms:RS_Analyzer_01 .
+
+
+# Scientific Provenance Model Examples
+
+provm:Exp01 a provm:Experiment ;
+	gdp:hasName "IIT Spectrum Observatory Experiment 2016"^^xsd:string ;
+	gdp:hasTimestamp "2016-01-01T00:00:00" ;
+	sms:hasSpectrumMeasurementSystem sms:IITSO ;
+	cb:hasCodebase cb:IITSO ;
+	provm:hasInput file:IITSO_BP_2016 ;
+	provm:hasOutput file:HDF5_01 .
+
+
+# Scientific Property Model Examples
+
+propm:DistanceFromEmitter a propm:Property .
+propm:PerceivedSignalPower a propm:Property .
+
+propm:Distance a propm:ScientificProperty ;
+	propm:hasAntecedent a propm:DistanceFromEmitter ;
+	propm:hasConsequent a propm:PerceivedSignalPower ;
+	propm:hasFunction "y=(1/x^2)a"^^xsd:string .

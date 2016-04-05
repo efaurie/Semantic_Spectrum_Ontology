@@ -22,13 +22,9 @@
 # Classes
 
 :Experiment a owl:Class .
-:OutputMechanism a owl:Class .
-:InputMechanism a owl:Class .
 
 
 # Object Properties
 
-:hasInputMechanism a owl:ObjectProperty ;
-	rdfs:range :InputMechanism .
-:hasOutputMechanism a owl:ObjectProperty ;
-	rdfs:range :OutputMechanism .
+:hasInput a owl:ObjectProperty .
+:hasOutput a owl:ObjectProperty .

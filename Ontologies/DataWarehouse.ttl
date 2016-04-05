@@ -24,8 +24,6 @@
 :DatabaseType a owl:Class .
 :SQLDatabaseType a owl:Class ;
 	rdfs:subClassOf :DatabaseType .
-:DatabaseAddress a owl:Class .
-:DatabaseName a owl:Class .
 :DatabaseSchema a owl:Class .
 :SQLDatabaseSchema a owl:Class ;
 	rdfs:subClassOf :SQLDatabaseSchema .
@@ -45,3 +43,11 @@
 	rdfs:subPropertyOf :hasDatabaseSchema ;
 	rdfs:domain :SQLStore ;
 	rdfs:range :SQLDatabaseSchema .
+
+
+# Datatype Properties
+
+:hasUsername a owl:DatatypeProperty ;
+	rdfs:range xsd:string .
+:hasPassword a owl:DatatypeProperty ;
+	rdfs:range xsd:string .

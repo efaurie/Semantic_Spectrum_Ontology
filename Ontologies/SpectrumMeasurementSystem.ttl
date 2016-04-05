@@ -30,5 +30,16 @@
 
 # Object Properties
 
+:hasSpectrumMeasurementSystem a owl:ObjectProperty ;
+	rdfs:range :SpectrumMeasurementSystem .
+	
 :hasSpectrumMeasurementDevice a owl:ObjectProperty ;
 	rdfs:range :SpectrumMeasurementDevice .
+
+
+# Datatype Properties
+
+:hasMaximumResolution a owl:DatatypeProperty ;
+	rdfs:range xsd:double .
+:hasMaximumAnalysisBandwidth a owl:DatatypeProperty ;
+	rdfs:range xsd:double .

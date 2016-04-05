@@ -21,12 +21,3 @@
 :File a owl:Class .
 :HDF5File a owl:Class ;
 	rdfs:subClassOf :File .
-
-
-# Object Properties
-
-
-# Datatype Properties
-
-:hasNamingConvention a owl:DatatypeProperty ;
-	rdfs:range xsd:string .
