@@ -1,0 +1,1 @@
+-b thesis -d org.postgresql.Driver -l jdbc:postgresql://localhost:5432/ -m r2rml -o Ontology.ttl -p DEFAULT -r C:\Users\Eric\git\Semantic_Spectrum_Ontology\R2RML\Relational_Info.r2rml -t TURTLE -u postgres

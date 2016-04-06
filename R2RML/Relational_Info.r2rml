@@ -5,78 +5,78 @@
 <#TriplesMap1>
 	rr:logicalTable [ rr:tableName "fcc_station_classes" ];
 	rr:subjectMap [
-		rr:template fcc:StationClass/{code};
+		rr:template "http://www.iit.edu/ontologies/fcc/StationClass/{code}";
 		rr:class fcc:StationClass;
 	];
 	rr:predicateObjectMap [
-		rr:predicate fcc:StationClass/hasDescription;
+		rr:predicate "http://www.iit.edu/ontologies/fcc/StationClass/hasDescription";
 		rr:objectMap [ rr:column "description" ];
 	].
 
 <#TriplesMap2>
 	rr:logicalTable [ rr:tableName "fcc_services" ];
 	rr:subjectMap [
-		rr:template fcc:Service/{code} ;
-		rr:class fcc:Service ;
+		rr:template "http://www.iit.edu/ontologies/fcc/Service/{code}";
+		rr:class fcc:Service;
 	];
 	rr:predicateObjectMap [
-		rr:predicate fcc:Service/hasDescription;
+		rr:predicate "http://www.iit.edu/ontologies/fcc/Service/hasDescription";
 		rr:objectMap [ rr:column "description" ];
 	].
 
 <#TriplesMap3>
 	rr:logicalTable [ rr:tableName "locations" ];
 	rr:subjectMap [
-		rr:template fcc:Location/{id};
+		rr:template "http://www.iit.edu/ontologies/fcc/Location/{id}";
 		rr:class fcc:Location;
 	];
 	rr:predicateObjectMap [
-		rr:predicate fcc:Location/hasState;
+		rr:predicate "http://www.iit.edu/ontologies/fcc/Location/hasState";
 		rr:objectMap [ rr:column "state" ];
 	];
 	rr:predicateObjectMap [
-		rr:predicate fcc:Location/hasCounty;
+		rr:predicate "http://www.iit.edu/ontologies/fcc/Location/hasCounty";
 		rr:objectMap [ rr:column "county" ];
 	].
 
 <#TriplesMap4>
 	rr:logicalTable [ rr:tableName "licenses" ];
 	rr:subjectMap [
-		rr:template fcc:License/{id};
+		rr:template "http://www.iit.edu/ontologies/fcc/License/{id}";
 		rr:class fcc:License;
 	];
 	rr:predicateObjectMap [
-		rr:predicate fcc:License/hasEntity;
+		rr:predicate "http://www.iit.edu/ontologies/fcc/License/hasEntity";
 		rr:objectMap [ rr:column "entity" ];
 	];
 	rr:predicateObjectMap [
-		rr:predicate fcc:License/hasFrequency;
+		rr:predicate "http://www.iit.edu/ontologies/fcc/License/hasFrequency";
 		rr:objectMap [ rr:column "frequency" ];
 	];
 	rr:predicateObjectMap [
-		rr:predicate fcc:License/hasGrantedDate;
+		rr:predicate "http://www.iit.edu/ontologies/fcc/License/hasGrantedDate";
 		rr:objectMap [ rr:column "granted" ];
 	];
 	rr:predicateObjectMap [
-		rr:predicate fcc:License/hasNumDevices;
+		rr:predicate "http://www.iit.edu/ontologies/fcc/License/hasNumDevices";
 		rr:objectMap [ rr:column "num_devices" ];
 	];
 	rr:predicateObjectMap [
-		rr:predicate fcc:License/hasCity;
+		rr:predicate "http://www.iit.edu/ontologies/fcc/License/hasCity";
 		rr:objectMap [ rr:column "city" ];
 	];
 	rr:predicateObjectMap [
-		rr:predicate fcc:License/hasLocation;
+		rr:predicate "http://www.iit.edu/ontologies/fcc/License/hasLocation";
 		rr:objectMap [
 			rr:parentTriplesMap <#TriplesMap3>;
 			rr:joinCondition [
-				rr:child "id";
-				rr:parent "location";
+				rr:child "location";
+				rr:parent "id";
 			];
 		];
 	];
 	rr:predicateObjectMap [
-		rr:predicate fcc:License/hasStationClass;
+		rr:predicate "http://www.iit.edu/ontologies/fcc/License/hasStationClass";
 		rr:objectMap [
 			rr:parentTriplesMap <#TriplesMap1>;
 			rr:joinCondition [
@@ -86,7 +86,7 @@
 		];
 	];
 	rr:predicateObjectMap [
-		rr:predicate fcc:License/hasService;
+		rr:predicate "http://www.iit.edu/ontologies/fcc/License/hasService";
 		rr:objectMap [
 			rr:parentTriplesMap <#TriplesMap2>;
 			rr:joinCondition [
@@ -99,34 +99,34 @@
 <#TriplesMap5>
 	rr:logicalTable [ rr:tableName "signal_tags" ];
 	rr:subjectMap [
-		rr:template fcc:SignalTag/{id};
+		rr:template "http://www.iit.edu/ontologies/fcc/SignalTag/{id}";
 		rr:class fcc:SignalTag;
 	];
 	rr:predicateObjectMap [
-		rr:predicate fcc:SignalTag/hasTag;
+		rr:predicate "http://www.iit.edu/ontologies/fcc/SignalTag/hasTag";
 		rr:objectMap [ rr:column "tag" ];
 	].
 
 <#TriplesMap6>
 	rr:logicalTable [ rr:tableName "signals "];
 	rr:subjectMap [
-		rr:template fcc:Signal/{id};
+		rr:template "http://www.iit.edu/ontologies/fcc/Signal/{id}";
 		rr:class fcc:Signal;
 	];
 	rr:predicateObjectMap [
-		rr:predicate fcc:Signal/hasFrequency;
+		rr:predicate "http://www.iit.edu/ontologies/fcc/Signal/hasFrequency";
 		rr:objectMap [ rr:column "frequency" ];
 	];
 	rr:predicateObjectMap [
-		rr:predicate fcc:Signal/hasDescription;
+		rr:predicate "http://www.iit.edu/ontologies/fcc/Signal/hasDescription";
 		rr:objectMap [ rr:column "description" ];
 	];
 	rr:predicateObjectMap [
-		rr:predicate fcc:Signal/hasSystem;
+		rr:predicate "http://www.iit.edu/ontologies/fcc/Signal/hasSystem";
 		rr:objectMap [ rr:column "system" ];
 	];
 	rr:predicateObjectMap [
-		rr:predicate fcc:Signal/hasTag;
+		rr:predicate "http://www.iit.edu/ontologies/fcc/Signal/hasTag";
 		rr:objectMap [
 			rr:parentTriplesMap <#TriplesMap5>;
 			rr:joinCondition [
@@ -136,7 +136,7 @@
 		];
 	];
 	rr:predicateObjectMap [
-		rr:predicate fcc:Signal/hasLocation;
+		rr:predicate "http://www.iit.edu/ontologies/fcc/Signal/hasLocation";
 		rr:objectMap [
 			rr:parentTriplesMap <#TriplesMap3>;
 			rr:joinCondition [
@@ -146,6 +146,6 @@
 		];
 	];
 	rr:predicateObjectMap [
-		rr:predicate fcc:Signal/updatedAt;
+		rr:predicate "http://www.iit.edu/ontologies/fcc/Signal/updatedAt";
 		rr:objectMap [ rr:column "updated" ];
 	].
