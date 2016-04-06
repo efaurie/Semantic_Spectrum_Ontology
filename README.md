@@ -7,9 +7,9 @@ An ontology which extends the W3C's Semantic Sensor Network ontology and creates
 1. General SSO Data Properties
 2. Spectrum
 3. Spectrum Measurement System
-..* Antenna
+  * Antenna
 4. Scientific Provenance Model
-..* Data Warehouse
-..* File
-..* Codebase
+  * Data Warehouse
+  * File
+  * Codebase
 5. Scientific Property Model
