@@ -9,14 +9,11 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix ssn: <http://purl.oclc.org/NET/ssnx/ssn> .
 
 
 # Classes
 
 :Antenna a owl:Class .
-:Location a owl:Class ;
-	rdfs:subClassOf ssn:Platform .
 :YagiAntenna a owl:Class ;
 	rdfs:subClassOf :Antenna .
 :HornAntenna a owl:Class ;
@@ -35,8 +32,6 @@
 
 :hasAntenna a owl:ObjectProperty ;
 	rdfs:range :Antenna .
-:hasLocation a owl:ObjectProperty ;
-	rdfs:range :Location .
 
 
 # Datatype Properties

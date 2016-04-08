@@ -16,7 +16,6 @@
 
 :Property a owl:Class ;
 	owl:sameAs ssn:Property .
-:Function a owl:Class .
 :ScientificProperty a owl:Class ;
 	rdfs:subClassOf :Property .
 :AxiomaticProperty a owl:Class ;
@@ -33,10 +32,13 @@
 :hasConsequenct a owl:ObjectProperty .
 :hasRelationship a owl:ObjectProperty ;
 	rdfs:range :Function .
+:isCorroboratedBy a owl:ObjectProperty .
+:isRefutedBy a owl:ObjectProperty .
 
 
 # Datatype Properties
 
-:hasEncoding a owl:DatatypeProperty ;
-	rdfs:domain :Function ;
+:hasRelationship a owl:DatatypeProperty ;
 	rdfs:range xsd:string .
+:hasProbability a owl:DatatypeProperty ;
+	rdfs:range xsd:double .

@@ -22,6 +22,8 @@
 
 # Object Properties
 
+:hasLocation a owl:ObjectProperty ;
+	rdfs:range :Location .
 :hasPoint a owl:ObjectProperty ;
 	rdfs:range :Point .
 
