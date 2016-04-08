@@ -30,11 +30,13 @@
 
 
 # Object Properties
-# Note that an Antenna should use spectrum:hasBandwidth 
+# Note that an Antenna should use spectrum:hasOperatingBand 
 # Which is located within the spectrum ontology
 
 :hasAntenna a owl:ObjectProperty ;
 	rdfs:range :Antenna .
+:hasLocation a owl:ObjectProperty ;
+	rdfs:range :Location .
 
 
 # Datatype Properties

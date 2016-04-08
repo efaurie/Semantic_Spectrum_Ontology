@@ -13,7 +13,6 @@
 
 # Classes
 
-:Spectrum a owl:Class .
 :Band a owl:Class .
 :Channel a owl:Class .
 

@@ -1,0 +1,32 @@
+# Local File Prefix
+
+@prefix : <http://www.iit.edu/ontologies/location#> .
+
+
+# External Dependencies
+
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix ssn: <http://purl.oclc.org/NET/ssnx/ssn> .
+@prefix sf: <http://www.opengis.net/ont/sf#> . 
+
+
+# Classes
+
+:Location a owl:Class ;
+	rdfs:subClassOf ssn:Platform .
+:Point a sf:Point .
+
+
+# Object Properties
+
+:hasPoint a owl:ObjectProperty ;
+	rdfs:range :Point .
+
+
+# Datatype Properties
+
+:hasAltitude a owl:DatatypeProperty ;
+	rdfs:range xsd:double .
