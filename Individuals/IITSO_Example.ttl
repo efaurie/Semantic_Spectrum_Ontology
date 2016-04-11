@@ -1,0 +1,133 @@
+# External Dependencies
+
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix sf: <http://www.opengis.net/ont/sf#> .
+
+
+# Internal Dependencies
+
+@prefix gdp: <http://www.iit.edu/ontologies/general-sso-data-properties#> .
+@prefix loc: <http://www.iit.edu/ontologies/location#> .
+@prefix ant: <http://www.iit.edu/ontologies/antenna#> .
+@prefix cb: <http://www.iit.edu/ontologies/codebase#> .
+@prefix dw: <http://www.iit.edu/ontologies/data-warehouse#> .
+@prefix file: <http://www.iit.edu/ontologies/file#> .
+@prefix propm: <http://www.iit.edu/ontologies/scientific-property-model#> .
+@prefix provm: <http://www.iit.edu/ontologies/scientific-provenance-model#> .
+@prefix spec: <http://www.iit.edu/ontologies/spectrum#> .
+@prefix sms: <http://www.iit.edu/ontologies/spectrum-measurement-system#> .
+
+
+# Location
+
+loc:IITSO_Coords a loc:Point ;
+	geo:asWKT "POINT(41.831385 -87.627222)"^^sf:WktLiteral .
+
+loc:IITSO_Platform a loc:Location ;
+	loc:hasPoint loc:IITSO_Coords ;
+	loc:hasAltitude "237"^^xsd:double .
+
+
+# Measurement System
+
+ant:IITSO_Log_Periodic_400_3000 a ant:LogPeriodicAntenna ;
+	gdp:hasManufacturer "TurboTenna"^^xsd:string ;
+	gdp:hasModel "007GTi NextG"^^xsd:string ;
+	spec:hasOperatingBand spec:Band_400_3000 ;
+	ant:hasGain "18"^^xsd:double ;
+	ant:hasBeamwidth "56"^^xsd:double ;
+	ant:hasDirectionality "Directional"^^xsd:string ;
+	ant:hasLocation loc:IITSO_Coords .
+
+sms:RS_Analyzer_01 a sms:SpectrumMeasurementDevice ;
+	gdp:hasName "Rohde Schwarz Spectrum Analyzer" ;
+	gdp:hasModel "FSW26"^^xsd:string ;
+	gdp:hasManufacturer "Rohde & Schwarz"^^xsd:string ;
+	gdp:hasHomepage "https://www.rohde-schwarz.com/us/product/fsw-productstartpage_63493-11793.html"^^xsd:string ;
+	spec:hasOperatingBand spec:2_26500 ;
+	sms:hasMaximumResolution "2000"^^xsd:double ;
+	sms:hasMaximumAnalysisBandwidth "2000000000"^^xsd:double .
+
+sms:IITSO_System a sms:SpectrumMeasurementSystem ;
+	gdp:hasName "IIT Spectrum Observatory"^^xsd:string ;
+	ant:hasAntenna ant:Log_Periodic_400_3000 ;
+	sms:hasSpectrumMeasurementDevice sms:RS_Analyzer_01 .
+
+
+# Codebase
+
+cb:Numpy a cb:Dependency ;
+	cb:hasProgrammingLanguage cb:Python_2.7 ;
+	gdp:hasVersion "1.12.0"^^xsd:string ;
+	gdp:hasHomepage "http://www.numpy.org/"^^xsd:string .
+
+cb:IITSO_Git_Repo a cb:Git_Repository ;
+	gdb:hasAddress "https://github.com/WiNCom/spectrum-monitor"^^xsd:string .
+
+cb:IITSO_Codebase a cb:Codebase ;
+	cb:hasProgrammingLanguage cb:Python_2.7 ;
+	cb:hasVersionControlSystem cb:IITSO_Git_Repo ;
+	gdp:hasVersion "42dc81a"^^xsd:string ;
+	cb:hasDependency cb:Numpy .
+
+
+# Input
+
+file:IITSO_Band_Plan a file:File ;
+	gdp:hasName "IITSO_RC_Band_Plan.txt"^^xsd:string ;
+	gdp:hasTimestamp "2015-05-03T12:00:00"^^xsd:dateTime ;
+	gdp:hasAddress "https://docs.google.com/document/d/1wsD7TyBAHCthLyeTB_ZW-v71yFOTwfXS9TqdWj_Ml08/edit?usp=sharing"^^xsd:string .
+
+file:IITSO_Band_Plan spec:hasBand spec:30_405 ;
+	spec:hasBand spec:Band_405_421 ;
+	spec:hasBand spec:Band_421_447 ;
+	spec:hasBand spec:Band_447_477 ;
+	spec:hasBand spec:Band_477_767 ;
+	spec:hasBand spec:Band_767_778 ;
+	spec:hasBand spec:Band_778_798 ;
+	spec:hasBand spec:Band_798_808 ;
+	spec:hasBand spec:Band_808_849 ;
+	spec:hasBand spec:Band_849_863 ;
+	spec:hasBand spec:Band_863_1755 ;
+	spec:hasBand spec:Band_1755_1850 ;
+	spec:hasBand spec:Band_1850_3000 .
+
+
+# Output
+
+dw:IITSO_Database_Schema a dw:SQLDatabaseSchema ;
+	gdp:hasAddress "https://docs.google.com/document/d/1wsD7TyBAHCthLyeTB_ZW-v71yFOTwfXS9TqdWj_Ml08/edit?usp=sharing"^^xsd:string .
+
+dw:IITSO_PostgreSQL a dw:SQLStore ;
+	dw:hasUsername "wincom_public_access"^^xsd:string ;
+	dw:hasPassword "community_access"^^xsd:string ;
+	dw:hasSQLDatabaseType dw:PostgreSQL_95 ;
+	dw:hasSQLDatabaseSchema dw:IITSO_Database_Schema ;
+	gdp:hasAddress "jdbc:postgresql://192.168.1.1:5432/data"^^xsd:string .
+
+
+# Experiment
+
+provm:IITSO_Exp_01 a provm:Experiment ;
+	gdp:hasName "IITSO Experiment 05-03-2015 To 05-10-2015" ;
+	gdp:hasTimestamp "2015-05-03T12:00:00"^^xsd:dateTime ;
+	provm:hasInput file:IITSO_Band_Plan ;
+	provm:hasOutput file:IITSO_Database_Schema ;
+	cb:hasCodebase IITSO_Codebase ;
+	sms:hasSpectrumMeasurementSystem sms:IITSO_System .
+
+
+# Findings
+
+propm:SportingEvent a propm:Property .
+propm:WiFi_Traffic a propm:Property .
+
+propm:IITSO_Hypothesis_01 a propm:ExperimentalProperty ;
+	propm:hasAntecedant propm:SportingEvent ;
+	propm:hasConsequent propm:WiFi_Traffic ;
+	propm:hasRelationship "Directly Proportional"^^xsd:string ;
+	propm:isCorroboratedBy provm:IITSO_Exp_01 .
