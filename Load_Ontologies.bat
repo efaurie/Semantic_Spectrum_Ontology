@@ -1,4 +1,5 @@
 call "%JENA_HOME%"\bat\tdbloader.bat --loc "sso_data" "Ontologies\GeneralSSODataProperties.ttl" 
+call "%JENA_HOME%"\bat\tdbloader.bat --loc "sso_data" "Ontologies\Location.ttl" 
 call "%JENA_HOME%"\bat\tdbloader.bat --loc "sso_data" "Ontologies\File.ttl"
 call "%JENA_HOME%"\bat\tdbloader.bat --loc "sso_data" "Ontologies\Codebase.ttl"
 call "%JENA_HOME%"\bat\tdbloader.bat --loc "sso_data" "Ontologies\DataWarehouse.ttl"
@@ -8,3 +9,5 @@ call "%JENA_HOME%"\bat\tdbloader.bat --loc "sso_data" "Ontologies\SpectrumMeasur
 call "%JENA_HOME%"\bat\tdbloader.bat --loc "sso_data" "Ontologies\ScientificPropertyModel.ttl"
 call "%JENA_HOME%"\bat\tdbloader.bat --loc "sso_data" "Ontologies\ScientificProvenanceModel.ttl"
 call "%JENA_HOME%"\bat\tdbloader.bat --loc "sso_data" "Individuals\Example_Individuals.ttl"
+call "%JENA_HOME%"\bat\tdbloader.bat --loc "sso_data" "Individuals\IITSO_Example.ttl"
+call "%JENA_HOME%"\bat\tdbloader.bat --loc "sso_data" "R2RML\Relational_Info.ttl"

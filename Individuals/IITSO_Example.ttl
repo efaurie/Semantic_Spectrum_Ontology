@@ -43,30 +43,16 @@ ant:IITSO_Log_Periodic_400_3000 a ant:LogPeriodicAntenna ;
 	ant:hasDirectionality "Directional"^^xsd:string ;
 	ant:hasLocation loc:IITSO_Coords .
 
-sms:RS_Analyzer_01 a sms:SpectrumMeasurementDevice ;
-	gdp:hasName "Rohde Schwarz Spectrum Analyzer" ;
-	gdp:hasModel "FSW26"^^xsd:string ;
-	gdp:hasManufacturer "Rohde & Schwarz"^^xsd:string ;
-	gdp:hasHomepage "https://www.rohde-schwarz.com/us/product/fsw-productstartpage_63493-11793.html"^^xsd:string ;
-	spec:hasOperatingBand spec:2_26500 ;
-	sms:hasMaximumResolution "2000"^^xsd:double ;
-	sms:hasMaximumAnalysisBandwidth "2000000000"^^xsd:double .
-
 sms:IITSO_System a sms:SpectrumMeasurementSystem ;
 	gdp:hasName "IIT Spectrum Observatory"^^xsd:string ;
 	ant:hasAntenna ant:IITSO_Log_Periodic_400_3000 ;
-	sms:hasSpectrumMeasurementDevice sms:RS_Analyzer_01 .
+	sms:hasSpectrumMeasurementDevice sms:RS_Analyzer_FSW26 .
 
 
 # Codebase
 
-cb:Numpy a cb:Dependency ;
-	cb:hasProgrammingLanguage cb:Python_2.7 ;
-	gdp:hasVersion "1.12.0"^^xsd:string ;
-	gdp:hasHomepage "http://www.numpy.org/"^^xsd:string .
-
 cb:IITSO_Git_Repo a cb:Git_Repository ;
-	gdb:hasAddress "https://github.com/WiNCom/spectrum-monitor"^^xsd:string .
+	gdp:hasAddress "https://github.com/WiNCom/spectrum-monitor"^^xsd:string .
 
 cb:IITSO_Codebase a cb:Codebase ;
 	cb:hasProgrammingLanguage cb:Python_2.7 ;
@@ -82,7 +68,7 @@ file:IITSO_Band_Plan a file:File ;
 	gdp:hasTimestamp "2015-05-03T12:00:00"^^xsd:dateTime ;
 	gdp:hasAddress "https://docs.google.com/document/d/1wsD7TyBAHCthLyeTB_ZW-v71yFOTwfXS9TqdWj_Ml08/edit?usp=sharing"^^xsd:string .
 
-file:IITSO_Band_Plan spec:hasBand spec:30_405 ;
+file:IITSO_Band_Plan spec:hasBand spec:Band_30_405 ;
 	spec:hasBand spec:Band_405_421 ;
 	spec:hasBand spec:Band_421_447 ;
 	spec:hasBand spec:Band_447_477 ;
@@ -117,7 +103,7 @@ provm:IITSO_Exp_01 a provm:Experiment ;
 	gdp:hasTimestamp "2015-05-03T12:00:00"^^xsd:dateTime ;
 	provm:hasInput file:IITSO_Band_Plan ;
 	provm:hasOutput file:IITSO_Database_Schema ;
-	cb:hasCodebase IITSO_Codebase ;
+	cb:hasCodebase cb:IITSO_Codebase ;
 	sms:hasSpectrumMeasurementSystem sms:IITSO_System .
 
 
