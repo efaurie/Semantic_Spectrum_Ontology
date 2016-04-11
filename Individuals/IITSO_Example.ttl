@@ -54,7 +54,7 @@ sms:RS_Analyzer_01 a sms:SpectrumMeasurementDevice ;
 
 sms:IITSO_System a sms:SpectrumMeasurementSystem ;
 	gdp:hasName "IIT Spectrum Observatory"^^xsd:string ;
-	ant:hasAntenna ant:Log_Periodic_400_3000 ;
+	ant:hasAntenna ant:IITSO_Log_Periodic_400_3000 ;
 	sms:hasSpectrumMeasurementDevice sms:RS_Analyzer_01 .
 
 
